@@ -20,8 +20,8 @@ module AjaxPagination
 
   # intercepts any AJAX Pagination 302 redirects, and turns them into Status 200 OK, with a Location: header. AJAX code can manually perform the redirection.
   # can be disabled in the initializer
-  mattr_accessor :redirect_after_filter
-  @@redirect_after_filter = true
+  mattr_accessor :redirect_after_action
+  @@redirect_after_action = true
 
   # when changing pages, AJAX Pagination scrolls to ensure the page sees the top of the changing section, plus an additional margin in pixels
   # to turn this feature off, set scroll_margin to '-Infinity'

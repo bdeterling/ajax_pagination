@@ -79,11 +79,11 @@ module AjaxPagination
     def self.included(base)
       base.extend ClassMethods
 
-      if AjaxPagination.redirect_after_filter == true
-        base.after_filter :ajax_pagination_redirect
+      if AjaxPagination.redirect_after_action == true
+        base.after_action :ajax_pagination_redirect
       end
 
-      base.before_filter do
+      base.before_action do
         # simply manipulating querystring will not get ajax response (in production mode)
         if request.xhr? || Rails.env == 'development'
           @_ajax_section = request.GET[:ajax_section]
@@ -192,10 +192,10 @@ module AjaxPagination
       (ajax_section.nil?) || (ajax_section == section_id.to_sym)
     end
 
-    # This after_filter method is automatically included by AJAX Paginate, and does not need to be included manually. However,
-    # it can be disabled in the initializer, and if desired, enabled in specific controllers by adding this method as an after_filter.
+    # This after_action method is automatically included by AJAX Paginate, and does not need to be included manually. However,
+    # it can be disabled in the initializer, and if desired, enabled in specific controllers by adding this method as an after_action.
     #
-    # This after_filter method will intercept any redirects for AJAX calls by
+    # This after_action method will intercept any redirects for AJAX calls by
     # AJAX Paginate, and turn it into a Status 200 OK response, with an extra Location: header.
     #
     # This is used because of the transparent redirection otherwise done by browsers on receiving a 30x status code. The AJAX

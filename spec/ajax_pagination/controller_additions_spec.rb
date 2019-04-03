@@ -21,9 +21,9 @@ describe AjaxPagination::ControllerAdditions do
   end
   before :each do
     @controller_class = Class.new
-    @controller_class.stub!(:around_filter)
-    @controller_class.stub!(:before_filter)
-    @controller_class.stub!(:after_filter)
+    @controller_class.stub!(:around_action)
+    @controller_class.stub!(:before_action)
+    @controller_class.stub!(:after_action)
     @controller = @controller_class.new
     @controller.stub!(:params).and_return({})
     stub_request_format_html(false)

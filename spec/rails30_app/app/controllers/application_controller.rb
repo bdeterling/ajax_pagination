@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :slowajaxload
+  before_action :slowajaxload
   ajax_respond :render => { :layout => "ajax" }
   def slowajaxload
     if (!ajax_section.nil?) && Rails.env == "test"

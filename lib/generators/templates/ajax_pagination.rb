@@ -15,8 +15,8 @@ AjaxPagination.config do |config|
   # that a redirection has taken place. The response is changed into a Status 200 OK, with an extra Location: header
   # The javascript code can then manually follow the redirect, and perform the necessary cleanup tasks (change the url
   # in the address bar). The default is on (true), use the following line to disable it if desired. If disabled, it can
-  # be re-enabled in specific controllers by adding after_filter :ajax_pagination_redirect to the class.
-  # config.redirect_after_filter = true
+  # be re-enabled in specific controllers by adding after_action :ajax_pagination_redirect to the class.
+  # config.redirect_after_action = true
 
   # when changing pages, AJAX Pagination scrolls to ensure the page sees the top of the changing section, plus an additional margin in pixels
   # The default margin is 20 pixels, as set by the line below
